@@ -3,15 +3,14 @@ import { checkIsLiked } from "@/lib/utils";
 import { Models } from "appwrite"
 import { useEffect, useState } from "react";
 import Loader from "./Loader";
-import { useLocation } from "react-router-dom";
 
 
 type PostStatsprops = {
-  post: Models.Document;
+  post:any;
   userId: string;
 }
 const PostStats = ({ post, userId }: PostStatsprops) => {
-  const location = useLocation();
+  // const location = useLocation();
   const likesList = post.likes.map((user: Models.Document) => user.$id)
 
   const [likes, setLikes] = useState(likesList);

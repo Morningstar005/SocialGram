@@ -30,7 +30,7 @@ const Explore = () => {
   }
   // console.log(posts);
   const shouldShowSearchResults = searchValue !== '';
-  const shouldShowPost = !shouldShowSearchResults && posts.pages.every((item) => item.documents.length === 0)
+  const shouldShowPost = !shouldShowSearchResults && posts.pages.every((item:any) => item.documents.length === 0)
   return (
     <div className="flex flex-col flex-1 items-center overflow-scroll custom-scrollbar py-10 px-5 md:p-14 ">
       <div className="max-w-5xl flex flex-col items-center w-full gap-6 md:gap-9">
@@ -69,13 +69,13 @@ const Explore = () => {
       <div className="flex flex-wrap gap-9 w-full max-w-5xl">
         {shouldShowSearchResults ? (
           <SearchResult inSearchfetching={isSearchFetching}
-            searchPost={searchPosts}
+          searchPosts={searchPosts}
           />
         ) : shouldShowPost ? (
           <p className="text-light-4 mt-10 text-center w-full">end of posts</p>
         )
           :
-          posts.pages.map((item, index) => (
+          posts.pages.map((item:any, index) => (
             <GridPostList key={index} posts={item.documents} />
           ))
         }

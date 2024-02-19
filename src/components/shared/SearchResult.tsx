@@ -1,16 +1,15 @@
-import { Models } from 'appwrite';
 import Loader from './Loader';
 import GridPostList from './GridPostList';
 
 type SearchResultProps ={
   inSearchfetching:boolean;
-  searchPost:Models.Document
+  searchPosts:any;
 }
-const SearchResult = ({inSearchfetching,searchPost}:SearchResultProps) => {
+const SearchResult = ({inSearchfetching,searchPosts}:SearchResultProps) => {
   if(inSearchfetching) return <Loader/>
-  if(searchPost && searchPost.documents.length>0){
+  if(searchPosts && searchPosts.documents.length>0){
     return( 
-      <GridPostList posts={searchPost.documents}/>
+      <GridPostList posts={searchPosts.documents}/>
       )
   }
  

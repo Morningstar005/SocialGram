@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export function formatDateString(dateString: string) {
+export function formatDateString(dateString: any) {
   const options: Intl.DateTimeFormatOptions = {
     year: "numeric",
     month: "short",
